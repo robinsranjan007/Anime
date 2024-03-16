@@ -1,0 +1,126 @@
+<form class="base-form" [formGroup]="myform" (ngSubmit)="onsubmit()">
+  <h1>Contact Form</h1>
+
+  <div class="container name">
+    <input type="text" placeholder="First Name" [formControlName]="'firstName'" />
+    <input type="text" placeholder="Last Name" [formControlName]="'lastName'" />
+  </div>
+  <div>
+    <small class="error" *ngIf="myform.get('firstName')?.errors?.['required'] && myform.get('firstName')?.touched">
+      first name is required
+    </small>
+    <small class="error" *ngIf="myform.get('firstName')?.errors?.['falsename']"> space is not allowed in the first name</small>
+    <small *ngIf="myform.get('firstName')?.errors?.['minlength'] && myform.get('firstName')?.touched">
+      first name should be minimum of three characters
+    </small>
+    <small class="error" *ngIf="myform.get('firstName')?.errors?.['required'] && myform.get('lastName')?.touched">
+      last name is required
+    </small>
+    <small *ngIf="myform.get('lastName')?.errors?.['minlength'] && myform.get('firstName')?.touched">
+      last name should be minimum of three characters
+    </small>
+  </div>
+  <div class="container email">
+    <input type="email" placeholder="Email" [formControlName]="'email'" />
+  </div>
+  <div>
+    <small class="error" *ngIf="myform.get('email')?.errors?.['required'] && myform.get('email')?.touched">
+      email is required
+    </small>
+  </div>
+
+  <div class="container name">
+    <input type="text" placeholder="User-name" [formControlName]="'userName'" />
+    <input type="date" placeholder="date of birth" [formControlName]="'dob'" />
+  </div>
+
+  <div class="container">
+    <h4>Gender</h4>
+
+    <div class="radio-group">
+      <label for="male">Male:
+        <input type="radio" id="male" value="Male" [formControlName]="'gender'" />
+      </label>
+
+      <label for="female">Female:
+        <input type="radio" id="female" value="Female" [formControlName]="'gender'" />
+      </label>
+
+      <label for="other">Other:
+        <input type="radio" id="other" value="Other" [formControlName]="'gender'" />
+      </label>
+    </div>
+  </div>
+  <div class="addres-container" [formGroupName]="'address'">
+    <h2>Address</h2>
+    <div class="container email">
+      <input type="text" placeholder="street" [formControlName]="'street'" />
+    </div>
+
+    <div class="container name">
+      <input type="text" placeholder="city" [formControlName]="'city'" />
+
+      <select class="state" id="country" formControlName="country">
+        <option value="USA">USA</option>
+        <option value="INDIA">INDIA</option>
+        <option value="CANADA">CANADA</option>
+        <option value="CHINA">CHINA</option>
+      </select>
+    </div>
+
+    <div class="container name">
+      <input type="number" placeholder="postal" [formControlName]="'postal'" />
+      <input type="text" placeholder="region" [formControlName]="'region'" />
+      <h1></h1>
+    </div>
+
+
+
+  </div>
+  <div class=" container" [formArrayName]="'skills'" >
+    <div class="skills" *ngFor="let item of skillscontrols['controls'] ;let i = index">
+      <input type="text" class="skills" placeholder="enter skills" [formControlName]="i" >
+
+      <button type="button" class="skill-button" [disabled]="skillscontrols.length<=1" (click)="removeskills(i)">remove skills</button>
+    </div>
+    <button type="button" class="skill-button" (click)="addskills()">Add skills</button>
+  </div>
+
+  <div style="padding-right: 100px ; border: 2px solid black; margin-top: 10px;">
+    <h2>experience</h2>
+    <div [formArrayName]="'experience'">
+      <div *ngFor="let item of experiencecontrols.controls; let i =index" [formGroupName]="i"   >
+        <div class="container email" >
+        <input type="text" placeholder="Company" formControlName="company">
+        </div>
+        <div class="name container" >
+        <select class="state" id="experience" formControlName="role" >
+          <option value="Senior Sftware Developer">Senior Software Developer</option>
+          <option value="Software Developer">Software Developer</option>
+          <option value="Assistant Software Developer">Assistant Software Developer</option>
+          <option value="Intern">Intern</option>
+        </select>
+        <input type="number" placeholder="total years" formControlName="total">
+        </div>
+     
+        <div class="container name">
+        <input type="date" placeholder="Start date" formControlName="startDate">
+        <input type="date" placeholder="End date" formControlName="endDate">
+
+        </div>
+        <button class="skill-button" (click)="deletexperience(i)">delete experience</button>
+       </div>
+
+      </div>
+     
+      
+   </div>
+
+    <button class="skill-button" (click)="addexperience()" type="button">add experience</button>
+
+
+  <button class="submit-button container" type="submit">submit</button>
+ 
+
+</form>
+ 

@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ 
+
+.base-form{
+    position: relative;  
+  
+     border: 2px solid blue;
+    border-radius: 20px;
+    width: 50%;
+    
+    margin: auto;
+    padding: 20px;
+}
+h1{text-align: center;}
+
+
+.container{
+    /* border: 2px solid blue; */
+    margin-top:10px;
+}
+
+
+.name{
+    /* border: 1px solid red; */
+   display: flex;
+   justify-content: space-between;
+
+}
+.name input{
+    width: 100%;
+    padding: 10px;
+    /* border: 2px solid yellow; */
+    /* margin-left: 10px; */
+}
+ 
+.email{
+    display: flex;
+}
+
+ .email input{
+    width: 100%;
+    padding: 10px;
+ }
+
+
+ .radio-group{
+    font-size: 20px;
+    margin-top: 10px;
+ 
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-between;
+  
+ }
+
+ .radio-group label{
+    /* border: 1px solid green; */
+    width: 100%;
+ }
+ .radio-group input[type="radio"]
+ {
+    vertical-align: middle;
+    margin-right: 10px;
+  
+ }
+
+ .state{
+    width: 100%;
+    padding: 10px;
+    /* border: 2px solid yellow; */
+ }
+
+.submit-button{
+background-color: rgba(235, 50, 96, 0.797);
+border-radius: 12px;
+width: 100%;
+padding: 10px;
+}
+
+
+/* error code */
+
+.ng-touched.ng-invalid{
+border: 2px solid red; 
+}
+
+small{
+    color: red;
+}
+
+.skills{
+    margin-top: 5px;
+}
+
+.skills input{
+    
+    display: inline-block;
+    width: 50%;
+    padding: 8px;
+}
+
+
+.skill-button{
+   margin-top: 10px;
+background-color: rgba(130, 20, 208, 0.797);
+border-radius: 12px;
+width: 30%;
+padding: 10px;
+color: white;
+font-size: 15px;
+font-weight:bolder; 
+margin-left: 10px;
+}
+
+.total-experience{
+    width: 400px;
+}
+
